@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoHome"
+    tools:context=".home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minHeight="188dp"
+            tools:layout_editor_absoluteY="567dp">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="42dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="307dp"
+                android:layout_marginTop="449dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layoutGraf"
+                android:layout_width="201dp"
+                android:layout_height="204dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="300dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginBottom="148dp"
+                app:layout_column="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_row="0">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="183dp"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="7dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/grafico" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="192dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Gasto de agua"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.595"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            </android.support.constraint.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="38dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="342dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/imageView4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_help" />
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
