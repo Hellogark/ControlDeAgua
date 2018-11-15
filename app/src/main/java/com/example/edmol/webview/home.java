@@ -9,12 +9,16 @@ import android.widget.Button;
 
 public class home extends AppCompatActivity implements View.OnClickListener{
     private ConstraintLayout grafica;
+    private ConstraintLayout control;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         grafica=findViewById(R.id.layoutGraf);
+        control = findViewById(R.id.layoutControl);
+        control.setOnClickListener(this);
         grafica.setOnClickListener(this);
 
     }
@@ -24,6 +28,9 @@ public class home extends AppCompatActivity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.layoutGraf:
                 startActivity(new Intent(home.this,webView.class));
+                break;
+            case R.id.layoutControl:
+                startActivity(new Intent(home.this,control.class));
                 break;
 
         }
