@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="fondoHome">#c8e4fe</color>
+
+    <color name="colorFondo1">#FFA07A</color>
+    <color name="colorFondo2">#87CEFA</color>
+    <color name="colorFondo3">#DEB887</color>
+    <color name="colorFondo4">#708090</color>
+    <color name="colorFondo5">#9966CC</color>
 </resources>
