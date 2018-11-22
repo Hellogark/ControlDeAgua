@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="70dp"
+    android:paddingBottom="100dp"
     android:paddingLeft="40dp"
     android:paddingRight="40dp"
-    android:paddingTop="70dp"
-    android:background="@color/fondoHome"
+    android:paddingTop="100dp"
+    android:id="@+id/Fondo"
     tools:context=".MainActivity">
 
     <ImageView

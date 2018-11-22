@@ -1,137 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondoHome"
+    android:paddingBottom="5dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="5dp"
+    android:id="@+id/Fondo"
+    android:background="@color/colorFondo1"
     tools:context=".home">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/barraOpciones"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="60dp">
 
-        <android.support.constraint.ConstraintLayout
+        <ImageView
+            android:id="@+id/imgAjustes"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:minHeight="188dp"
-            tools:layout_editor_absoluteY="567dp">
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ajustes"/>
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="42dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="307dp"
-                android:layout_marginTop="449dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="25dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
+        <ImageView
+            android:id="@+id/imgProblema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/problema"/>
+    </RelativeLayout>
 
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/layoutGraf"
-                android:layout_width="201dp"
-                android:layout_height="204dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="300dp"
-                android:layout_marginEnd="48dp"
-                android:layout_marginBottom="148dp"
-                app:layout_column="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.505"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.211"
-                app:layout_row="0">
+    <ImageView
+        android:id="@+id/controlAgua"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/barraOpciones"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:src="@drawable/control_agua"/>
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="183dp"
-                    android:layout_height="160dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="7dp"
-                    app:layout_constraintBottom_toTopOf="@+id/textView2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/grafico" />
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="192dp"
-                    android:layout_height="34dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Gasto de Agua"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.595"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
-            </android.support.constraint.ConstraintLayout>
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="38dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="342dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                app:layout_constraintBottom_toTopOf="@+id/imageView4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_help" />
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/layoutControl"
-                android:layout_width="200dp"
-                android:layout_height="202dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/layoutGraf"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="183dp"
-                    android:layout_height="160dp"
-                    app:srcCompat="@drawable/grifo"
-                    tools:layout_editor_absoluteX="9dp"
-                    tools:layout_editor_absoluteY="5dp" />
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:text="Control de Agua"
-                    android:textColor="@android:color/background_dark"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </android.support.constraint.ConstraintLayout>
-        </android.support.constraint.ConstraintLayout>
-
-    </LinearLayout>
-
-</android.support.constraint.ConstraintLayout>
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/custom_bluetooth"
+        android:text=""
+        android:textOff=""
+        android:textOn="" />
+</RelativeLayout>

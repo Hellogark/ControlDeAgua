@@ -4,35 +4,49 @@ import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
 
-public class home extends AppCompatActivity implements View.OnClickListener{
-    private ConstraintLayout grafica;
-    private ConstraintLayout control;
+import java.util.ArrayList;
+
+public class home extends AppCompatActivity {
+    private ImageView control, ajustes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        grafica=findViewById(R.id.layoutGraf);
-        control = findViewById(R.id.layoutControl);
-        control.setOnClickListener(this);
-        grafica.setOnClickListener(this);
+        control = (ImageView) findViewById(R.id.controlAgua);
+        control.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openControl();
+            }
+        });
 
+        ajustes = (ImageView) findViewById(R.id.imgAjustes);
+        ajustes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAjustes();
+            }
+        });
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.layoutGraf:
-                startActivity(new Intent(home.this,webView.class));
-                break;
-            case R.id.layoutControl:
-                startActivity(new Intent(home.this,control.class));
-                break;
+    public void openControl() {
+        Intent c = new Intent(this, control.class);
+        startActivity(c);
+    }
 
-        }
+    public void openAjustes(){
+        Intent a = new Intent(this, ajustes.class);
+        startActivity(a);
     }
 }
