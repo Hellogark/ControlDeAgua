@@ -63,4 +63,20 @@
         android:text=""
         android:textOff=""
         android:textOn="" />
+
+    <Button
+        android:id="@+id/btnManual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Manual" />
+
+    <Button
+        android:id="@+id/btnAutomatico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="201dp"
+        android:text="Automatico" />
 </RelativeLayout>

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
     private ImageView control, ajustes;
+    private Button btnManual, btnAutomatico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,22 @@ public class home extends AppCompatActivity {
                 openAjustes();
             }
         });
+
+        btnManual = (Button) findViewById(R.id.btnManual);
+        btnManual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openManual();
+            }
+        });
+
+        btnAutomatico = (Button) findViewById(R.id.btnAutomatico);
+        btnAutomatico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAutomatico();
+            }
+        });
     }
 
     public void openControl() {
@@ -48,5 +65,15 @@ public class home extends AppCompatActivity {
     public void openAjustes(){
         Intent a = new Intent(this, ajustes.class);
         startActivity(a);
+    }
+
+    public void openManual(){
+        Intent manual = new Intent(this, manual.class);
+        startActivity(manual);
+    }
+
+    public  void openAutomatico(){
+        Intent automatico = new Intent(this, automatico.class);
+        startActivity(automatico);
     }
 }
