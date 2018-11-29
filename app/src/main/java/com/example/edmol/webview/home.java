@@ -85,13 +85,13 @@ public class home extends AppCompatActivity {
     }
 
     public void openControl() {
-        Intent c = new Intent(this, control.class);
-        startActivity(c);
+        Intent c = new Intent(getApplicationContext(), control.class);
+        startActivityForResult(c,1);
     }
 
     public void openAjustes() {
-        Intent a = new Intent(this, ajustes.class);
-        startActivity(a);
+        Intent a = new Intent(getApplicationContext(), ajustes.class);
+        startActivityForResult(a,1);
     }
 
     public void openGrafica() {
