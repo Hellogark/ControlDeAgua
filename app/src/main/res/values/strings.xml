@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Control de agua</string>
+    <string name="app_name">Control de Agua</string>
     <string name="title_activity_control">control</string>
     <string name="tab_text_1">Manual</string>
     <string name="tab_text_2">Automático</string>

@@ -51,8 +51,9 @@ public class home extends AppCompatActivity {
             }
         });
 
-                display2 = (RelativeLayout) findViewById(R.id.Fondo);
+        display2 = (RelativeLayout) findViewById(R.id.Fondo);
         display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1));
+        fondoActual="colorFondo1";
     }
 
     @Override
@@ -86,6 +87,7 @@ public class home extends AppCompatActivity {
 
     public void openControl() {
         Intent c = new Intent(getApplicationContext(), control.class);
+        c.putExtra("fondoActual",fondoActual);
         startActivityForResult(c,1);
     }
 
