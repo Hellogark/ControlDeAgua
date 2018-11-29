@@ -1,13 +1,17 @@
 package com.example.edmol.webview;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,6 +22,8 @@ public class ajustes extends AppCompatActivity {
     private tamanoAdapter eAdapter;
     TextView display;
     RelativeLayout display2;
+    String fondoSeleccionado = "";
+    Button btnGuardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,14 @@ public class ajustes extends AppCompatActivity {
         spinnerColores.setAdapter(cAdapter);
         spinnerTamano.setAdapter(eAdapter);
 
+        btnGuardar = (Button) findViewById(R.id.btnGuardar);
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                guardarCambios();
+            }
+        });
+
         spinnerColores.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -48,15 +62,19 @@ public class ajustes extends AppCompatActivity {
 
                 if (position == 0) {
                     display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1));
+                    fondoSeleccionado = "colorFondo1";
                 }
                 if (position == 1) {
                     display2.setBackgroundColor(getResources().getColor(R.color.colorFondo2));
+                    fondoSeleccionado = "colorFondo2";
                 }
                 if (position == 2) {
                     display2.setBackgroundColor(getResources().getColor(R.color.colorFondo3));
+                    fondoSeleccionado = "colorFondo3";
                 }
                 if (position == 3) {
                     display2.setBackgroundColor(getResources().getColor(R.color.colorFondo4));
+                    fondoSeleccionado = "colorFondo4";
                 }
             }
 
@@ -88,6 +106,28 @@ public class ajustes extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void guardarCambios() {
+        Intent back = new Intent();
+        switch (fondoSeleccionado) {
+            case "colorFondo1": back.putExtra("fondoSeleccionado",fondoSeleccionado);
+            case "colorFondo2": back.putExtra("fondoSeleccionado",fondoSeleccionado);
+            case "colorFondo3": back.putExtra("fondoSeleccionado",fondoSeleccionado);
+            case "colorFondo4": back.putExtra("fondoSeleccionado",fondoSeleccionado);
+        }
+        setResult(Activity.RESULT_OK, back);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        guardarCambios();
+        /*Intent back = new Intent();
+        back.putExtra("fondoSeleccionado",fondoSeleccionado);
+        setResult(Activity.RESULT_CANCELED, back);
+        finish();*/
     }
 
     private void colorList(){

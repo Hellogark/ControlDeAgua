@@ -10,7 +10,6 @@
     android:paddingRight="15dp"
     android:paddingTop="5dp"
     android:id="@+id/Fondo"
-    android:background="@color/colorFondo1"
     tools:context=".home">
 
     <RelativeLayout

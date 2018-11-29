@@ -1,5 +1,6 @@
 package com.example.edmol.webview;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +13,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
     private ImageView control, ajustes;
     private Button btnManual, btnAutomatico;
+    boolean variable = false;
+    RelativeLayout display2;
+    String fondoActual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,25 +60,51 @@ public class home extends AppCompatActivity {
                 openAutomatico();
             }
         });
+
+        display2 = (RelativeLayout) findViewById(R.id.Fondo);
+        display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                String fondoSeleccionado = data.getStringExtra("fondoSeleccionado").toString();
+                fondoActual = fondoSeleccionado;
+                switch (fondoActual) {
+                    case "colorFondo1": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1)); break;
+                    case "colorFondo2": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo2)); break;
+                    case "colorFondo3": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo3)); break;
+                    case "colorFondo4": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo4)); break;
+                    default:
+                        Toast.makeText(this, "Algo malo pasó", Toast.LENGTH_SHORT).show(); break;
+                }
+            }
+
+        }
     }
 
     public void openControl() {
-        Intent c = new Intent(this, control.class);
+        Intent c = new Intent(getApplicationContext(), control.class);
+        c.putExtra("fondoActual",fondoActual);
         startActivity(c);
     }
 
     public void openAjustes(){
-        Intent a = new Intent(this, ajustes.class);
-        startActivity(a);
+        Intent a = new Intent(getApplicationContext(), ajustes.class);
+        startActivityForResult(a,1);
     }
 
     public void openManual(){
-        Intent manual = new Intent(this, manual.class);
+        Intent manual = new Intent(getApplicationContext(), manual.class);
+        manual.putExtra("fondoActual",fondoActual);
         startActivity(manual);
     }
 
     public  void openAutomatico(){
-        Intent automatico = new Intent(this, automatico.class);
+        Intent automatico = new Intent(getApplicationContext(), automatico.class);
+        automatico.putExtra("fondoActual",fondoActual);
         startActivity(automatico);
     }
 }

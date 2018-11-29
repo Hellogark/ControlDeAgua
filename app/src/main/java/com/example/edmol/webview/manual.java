@@ -1,15 +1,18 @@
 package com.example.edmol.webview;
 
 import android.annotation.SuppressLint;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class manual extends AppCompatActivity {
     ImageView btnManual;
+    ConstraintLayout display2;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -29,6 +32,7 @@ public class manual extends AppCompatActivity {
                 }
             }
         });
+
         /*btnPower.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -40,5 +44,18 @@ public class manual extends AppCompatActivity {
                 return true;
             }
         });*/
+
+        display2 = (ConstraintLayout) findViewById(R.id.Fondo);
+        String fondoActual;
+        fondoActual = getIntent().getExtras().getString("fondoActual");
+        switch (fondoActual) {
+            case "colorFondo1": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1)); break;
+            case "colorFondo2": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo2)); break;
+            case "colorFondo3": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo3)); break;
+            case "colorFondo4": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo4)); break;
+            default:
+                Toast.makeText(this, "Algo malo pasó", Toast.LENGTH_SHORT).show(); break;
+        }
+
     }
 }
