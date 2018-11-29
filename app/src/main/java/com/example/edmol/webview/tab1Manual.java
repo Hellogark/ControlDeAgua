@@ -19,7 +19,6 @@ public class tab1Manual extends Fragment{
         View v = inflater.inflate(R.layout.tab1manual, container, false);
 
         display2 = (RelativeLayout) v.findViewById(R.id.Fondo);
-        display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1));
         return v;
     }
 

@@ -24,7 +24,6 @@ public class tab2Automatico extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.tab2automatico, container, false);
         display2 = (RelativeLayout) v.findViewById(R.id.Fondo);
-        display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1));
         return v;
     }
 
