@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,7 +22,7 @@ public class ajustes extends AppCompatActivity {
     TextView display;
     RelativeLayout display2;
     String fondoSeleccionado = "";
-    Button btnGuardar;
+    Button save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +45,8 @@ public class ajustes extends AppCompatActivity {
         spinnerColores.setAdapter(cAdapter);
         spinnerTamano.setAdapter(eAdapter);
 
-        btnGuardar = (Button) findViewById(R.id.btnGuardar);
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
+        save = (Button) findViewById(R.id.btnGuardar);
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 guardarCambios();
@@ -111,10 +110,14 @@ public class ajustes extends AppCompatActivity {
     private void guardarCambios() {
         Intent back = new Intent();
         switch (fondoSeleccionado) {
-            case "colorFondo1": back.putExtra("fondoSeleccionado",fondoSeleccionado);
-            case "colorFondo2": back.putExtra("fondoSeleccionado",fondoSeleccionado);
-            case "colorFondo3": back.putExtra("fondoSeleccionado",fondoSeleccionado);
-            case "colorFondo4": back.putExtra("fondoSeleccionado",fondoSeleccionado);
+            case "colorFondo1":
+                back.putExtra("fondoSeleccionado", fondoSeleccionado);
+            case "colorFondo2":
+                back.putExtra("fondoSeleccionado", fondoSeleccionado);
+            case "colorFondo3":
+                back.putExtra("fondoSeleccionado", fondoSeleccionado);
+            case "colorFondo4":
+                back.putExtra("fondoSeleccionado", fondoSeleccionado);
         }
         setResult(Activity.RESULT_OK, back);
         finish();
@@ -124,21 +127,17 @@ public class ajustes extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         guardarCambios();
-        /*Intent back = new Intent();
-        back.putExtra("fondoSeleccionado",fondoSeleccionado);
-        setResult(Activity.RESULT_CANCELED, back);
-        finish();*/
     }
 
-    private void colorList(){
+    private void colorList() {
         mColoresList = new ArrayList<>();
-        mColoresList.add(new coloresItem("Fondo 1", R.drawable.paleta_colores));
-        mColoresList.add(new coloresItem("Fondo 2", R.drawable.paleta_colores));
-        mColoresList.add(new coloresItem("Fondo 3", R.drawable.paleta_colores));
-        mColoresList.add(new coloresItem("Fondo 4", R.drawable.paleta_colores));
+        mColoresList.add(new coloresItem("Naranja", R.drawable.paleta_colores));
+        mColoresList.add(new coloresItem("Azul", R.drawable.paleta_colores));
+        mColoresList.add(new coloresItem("Café", R.drawable.paleta_colores));
+        mColoresList.add(new coloresItem("Gris", R.drawable.paleta_colores));
     }
 
-    private void tamanoList(){
+    private void tamanoList() {
         mTamanoList = new ArrayList<>();
         mTamanoList.add(new tamanoItem("Pequeño", R.drawable.tamano_texto));
         mTamanoList.add(new tamanoItem("Mediano", R.drawable.tamano_texto));

@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Fondo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="5dp"
+    tools:context="com.example.edmol.webview.control">
+
+
+    <TextView
+        android:id="@+id/tvParametros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Establezca parametros:"
+        android:textColor="@color/colorTexto"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/tvLitros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvParametros"
+        android:text="Litros:"
+        android:textColor="@color/colorTexto"
+        android:textSize="25dp" />
+
+    <com.michaelmuenzer.android.scrollablennumberpicker.ScrollableNumberPicker
+        android:id="@+id/snpNumeracion"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvParametros"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/tvLitros"
+        android:background="@drawable/custom_numero"
+        app:snp_buttonIconLeft="@drawable/ic_left"
+        app:snp_buttonIconRight="@drawable/ic_right"
+        app:snp_maxValue="100"
+        app:snp_minValue="0"
+        app:snp_orientation="horizontal"
+        app:snp_stepSize="1"
+        app:snp_updateInterval="1"
+        app:snp_value="1"
+        app:snp_valueMarginEnd="8dp"
+        app:snp_valueMarginStart="8dp" />
+
+    <Button
+        android:id="@+id/boton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/snpNumeracion"
+        android:layout_marginTop="10dp"
+        android:text="Comenzar" />
+</RelativeLayout>

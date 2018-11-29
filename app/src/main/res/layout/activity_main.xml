@@ -10,6 +10,7 @@
     android:paddingRight="40dp"
     android:paddingTop="100dp"
     android:id="@+id/Fondo"
+    android:background="@color/colorFondo1"
     tools:context=".MainActivity">
 
     <ImageView

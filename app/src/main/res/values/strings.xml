@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">Control de Agua</string>
+    <string name="app_name">Control de agua</string>
+    <string name="title_activity_control">control</string>
+    <string name="tab_text_1">Manual</string>
+    <string name="tab_text_2">Automático</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>

@@ -18,9 +18,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
-    private ImageView control, ajustes;
-    private Button btnManual, btnAutomatico;
-    boolean variable = false;
+    private ImageView control, ajustes, grafica;
     RelativeLayout display2;
     String fondoActual;
 
@@ -45,23 +43,15 @@ public class home extends AppCompatActivity {
             }
         });
 
-        btnManual = (Button) findViewById(R.id.btnManual);
-        btnManual.setOnClickListener(new View.OnClickListener() {
+        grafica = (ImageView) findViewById(R.id.graficaAgua);
+        grafica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openManual();
+                openGrafica();
             }
         });
 
-        btnAutomatico = (Button) findViewById(R.id.btnAutomatico);
-        btnAutomatico.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openAutomatico();
-            }
-        });
-
-        display2 = (RelativeLayout) findViewById(R.id.Fondo);
+                display2 = (RelativeLayout) findViewById(R.id.Fondo);
         display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1));
     }
 
@@ -73,12 +63,21 @@ public class home extends AppCompatActivity {
                 String fondoSeleccionado = data.getStringExtra("fondoSeleccionado").toString();
                 fondoActual = fondoSeleccionado;
                 switch (fondoActual) {
-                    case "colorFondo1": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1)); break;
-                    case "colorFondo2": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo2)); break;
-                    case "colorFondo3": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo3)); break;
-                    case "colorFondo4": display2.setBackgroundColor(getResources().getColor(R.color.colorFondo4)); break;
+                    case "colorFondo1":
+                        display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1));
+                        break;
+                    case "colorFondo2":
+                        display2.setBackgroundColor(getResources().getColor(R.color.colorFondo2));
+                        break;
+                    case "colorFondo3":
+                        display2.setBackgroundColor(getResources().getColor(R.color.colorFondo3));
+                        break;
+                    case "colorFondo4":
+                        display2.setBackgroundColor(getResources().getColor(R.color.colorFondo4));
+                        break;
                     default:
-                        Toast.makeText(this, "Algo malo pasó", Toast.LENGTH_SHORT).show(); break;
+                        Toast.makeText(this, "Algo malo pasó", Toast.LENGTH_SHORT).show();
+                        break;
                 }
             }
 
@@ -86,25 +85,17 @@ public class home extends AppCompatActivity {
     }
 
     public void openControl() {
-        Intent c = new Intent(getApplicationContext(), control.class);
-        c.putExtra("fondoActual",fondoActual);
+        Intent c = new Intent(this, control.class);
         startActivity(c);
     }
 
-    public void openAjustes(){
-        Intent a = new Intent(getApplicationContext(), ajustes.class);
-        startActivityForResult(a,1);
+    public void openAjustes() {
+        Intent a = new Intent(this, ajustes.class);
+        startActivity(a);
     }
 
-    public void openManual(){
-        Intent manual = new Intent(getApplicationContext(), manual.class);
-        manual.putExtra("fondoActual",fondoActual);
-        startActivity(manual);
-    }
-
-    public  void openAutomatico(){
-        Intent automatico = new Intent(getApplicationContext(), automatico.class);
-        automatico.putExtra("fondoActual",fondoActual);
-        startActivity(automatico);
+    public void openGrafica() {
+        Intent g = new Intent(this, webView.class);
+        startActivity(g);
     }
 }
