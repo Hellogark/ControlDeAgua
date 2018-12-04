@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class AdminBD extends SQLiteOpenHelper{
     final static int bd_version = 1;
-    final static String bd_nombre = "bd_registros";
+    final static String bd_nombre = "bd_registros.db";
     final static String tb_nombre = "tb_registros";
     final static String campo_id = "id";
     final static String campo_fecha = "fecha";
@@ -15,7 +15,9 @@ public class AdminBD extends SQLiteOpenHelper{
     final static String campo_modo = "modo"; //MANUAL O AUTOMATICO
     final static String campo_caudal = "caudal";
     final static String crear_tabla = "CREATE TABLE "+tb_nombre+" ("+campo_id+" INTEGER PRIMARY KEY AUTOINCREMENT, "
-            +campo_fecha+" TEXT, "+campo_litros_consumidos+" TEXT, "+campo_modo+" TEXT, "+campo_caudal+" TEXT);";
+            +campo_fecha+" TIMESTAMP_UNIX, "+campo_litros_consumidos+" TEXT, "+campo_modo+" TEXT, "+campo_caudal+" TEXT);";
+    final static String consulta_litros= "SELECT campo_Litros_consumidos FROM "+tb_nombre+";";
+    final static String consulta_fecha= "SELECT campo_fecha FROM "+tb_nombre+";";
     final static String consulta_tabla = "SELECT * FROM "+tb_nombre+";";
 
     public AdminBD(Context context) {
@@ -43,6 +45,16 @@ public class AdminBD extends SQLiteOpenHelper{
         Cursor cursor = bd.rawQuery(consulta_tabla, null);
         return cursor;
     }
+
+    public Cursor consultaLitros(SQLiteDatabase bd){
+        Cursor cursorLitros = bd.rawQuery(consulta_litros,null);
+        return cursorLitros;
+    }
+    public Cursor consultaFecha(SQLiteDatabase bd){
+        Cursor cursorFecha = bd.rawQuery(consulta_fecha,null);
+                return cursorFecha;
+    }
+
 
     public void modificarRegistro(SQLiteDatabase bd, int id, String fecha, String litros_consumidos, String modo, String caudal) {
         final String modificar = "UPDATE "+tb_nombre+" SET "+campo_fecha+ "='"+fecha+"', "
