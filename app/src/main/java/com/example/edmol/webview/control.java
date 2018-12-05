@@ -101,7 +101,7 @@ public class control extends AppCompatActivity {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        mCargaTexto.setVisibility(View.VISIBLE);
+                        mCargaTexto.setVisibility(View.INVISIBLE);
                     }
                 });
             }

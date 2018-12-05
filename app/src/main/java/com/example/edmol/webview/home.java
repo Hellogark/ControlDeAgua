@@ -93,6 +93,7 @@ public class home extends AppCompatActivity {
 
     public void openAjustes() {
         Intent a = new Intent(getApplicationContext(), ajustes.class);
+        a.putExtra("fondoActual",fondoActual);
         startActivityForResult(a,1);
     }
 

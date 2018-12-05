@@ -39,7 +39,7 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="300dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <RelativeLayout
@@ -47,15 +47,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/container"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="300dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/medidor"
+            android:id="@+id/imgMedidor"/>
 
         <ProgressBar
             android:id="@+id/pbProgreso"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp" />
+            android:layout_margin="30dp"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/tvCargaCompleta"

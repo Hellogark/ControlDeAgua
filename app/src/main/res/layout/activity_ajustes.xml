@@ -83,5 +83,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
-        android:text="Guardar Cambios" />
+        android:background="@drawable/guardar"/>
 </RelativeLayout>
