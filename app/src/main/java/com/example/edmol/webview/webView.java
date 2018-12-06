@@ -27,6 +27,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
@@ -40,7 +41,8 @@ import java.util.List;
 
 public class webView extends AppCompatActivity implements OnChartGestureListener, OnChartValueSelectedListener, AdapterView.OnItemSelectedListener {
     private WebView webView;
-
+    private LineChart chart;
+    private HorizontalBarChart barraH;
     private Spinner spFecha,spLitros,spTgraf;
     private String Url = "https://reports.zoho.com/open-view/1818177000000002051/2bec8a48eadcfe479fb9737b6b02038d";
     private RelativeLayout rl;
@@ -58,6 +60,24 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
         super.onCreate(savedInstanceState);
         rl = findViewById(R.id.layoutChart);
         setContentView(R.layout.activity_web_view);
+        spFecha= findViewById(R.id.spFecha);
+        spLitros = findViewById(R.id.spLitros);
+        spTgraf = findViewById(R.id.spTChart);
+
+        ArrayAdapter <CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.txtFechas,          android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spFecha.setAdapter(adapter);
+        spFecha.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+
+        ArrayAdapter <CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.txtLitros,          android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spLitros.setAdapter(adapter1);
+        spLitros.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+
+        ArrayAdapter <CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.txtTGraf,          android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spTgraf.setAdapter(adapter2);
+        spTgraf.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
 
 
 
@@ -73,23 +93,18 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
 
 
 
-        spFecha= findViewById(R.id.spFecha);
-        spLitros = findViewById(R.id.spLitros);
-        spTgraf = findViewById(R.id.spTChart);
+
         //webView = findViewById(R.id.vistaWeb);
 
-        ArrayAdapter <CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.txtFechas, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spFecha.setAdapter(adapter);
-        spFecha.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
 
-       // grafLinea();
+
+        grafLinea();
         barras();
     }
 
 
     public void grafLinea(){
-        LineChart chart = findViewById(R.id.lineChart);
+      chart = findViewById(R.id.lineChart);
         Description desc = new Description();
         desc.setText("Gasto de agua");
         chart.setDescription(desc);
@@ -101,15 +116,19 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
 
         LineDataSet dataSet = new LineDataSet(getDataset(),"Visualiza el consumo de agua");
         dataSet.setHighlightEnabled(true); // allow highlighting for DataSet
-
+        XAxis axisX = chart.getXAxis();
+        axisX.setGranularity(1f);
+        axisX.setValueFormatter(formatter);
         // set this to false to disable the drawing of highlight indicator (lines)
         dataSet.setDrawHighlightIndicators(true);
         dataSet.setHighLightColor(Color.BLACK);
         dataSet.setDrawFilled(true);
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         Collections.sort(getDataset(), new EntryXComparator());
-        LineData lineData= new LineData(dataSet);
-        lineData.setValueFormatter(new EjeX(getEjeXValores()));
+        ArrayList <ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(dataSet);
+        LineData lineData= new LineData(dataSets);
+        //lineData.setValueFormatter(new EjeX(getEjeXValores()));
         chart.setData(lineData);
         chart.animateXY(2000,2000);
         lineData.setValueTextSize(18f);
@@ -117,7 +136,7 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
 
     }
     public void barras(){
-        HorizontalBarChart barraH = findViewById(R.id.barChart);
+        barraH = findViewById(R.id.barChart);
 
         Description desc = new Description();
         desc.setText("Gasto de agua");
@@ -182,8 +201,8 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
         return entradas;
 
     }
-    private List<Entry> getDataset(){
-        List<Entry> entradas = new ArrayList<Entry>();
+    private ArrayList<Entry> getDataset(){
+        ArrayList<Entry> entradas = new ArrayList<Entry>();
         entradas.add(new Entry(0,215f));
         entradas.add(new Entry(1,36f));
         entradas.add(new Entry(2,478f));
@@ -212,7 +231,34 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String item = adapterView.getItemAtPosition(i).toString();
+        switch(item){
+            case "Lineal":
 
+                if(chart.getVisibility()==view.VISIBLE){
+                    grafLinea();
+                    return;
+                }
+                if(barraH.getVisibility() == view.VISIBLE){
+                    barraH.setVisibility(View.GONE);
+                    chart.setVisibility(view.VISIBLE);
+                    grafLinea();
+
+                }
+                break;
+            case "Barras-Horizontal":
+                if(barraH.getVisibility()==view.VISIBLE){
+                    return;
+                }
+                if(chart.getVisibility() == view.VISIBLE){
+                    // chart.setVisibility(View.GONE);
+                    barraH.setVisibility(View.VISIBLE);
+                    barras();
+                }break;
+            case "Litros":
+
+
+        }
     }
 
     @Override
@@ -297,6 +343,7 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
         cursor.close();
         return yNewData;
     }*/
+
     @Override
     public void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
 
