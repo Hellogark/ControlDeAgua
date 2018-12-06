@@ -54,12 +54,12 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_below="@id/controlAgua"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:src="@drawable/grafico" />
 
-    <ToggleButton
+    <!--<ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -70,5 +70,5 @@
         android:background="@drawable/custom_bluetooth"
         android:text=""
         android:textOff=""
-        android:textOn="" />
+        android:textOn="" />-->
 </RelativeLayout>
