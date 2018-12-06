@@ -9,8 +9,10 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
@@ -39,15 +41,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class webView extends AppCompatActivity implements OnChartGestureListener, OnChartValueSelectedListener, AdapterView.OnItemSelectedListener {
+public class webView extends AppCompatActivity implements OnChartGestureListener,View.OnClickListener, OnChartValueSelectedListener, AdapterView.OnItemSelectedListener {
     private WebView webView;
     private LineChart chart;
     private HorizontalBarChart barraH;
+    private ImageView flecha;
     private Spinner spFecha,spLitros,spTgraf;
     private String Url = "https://reports.zoho.com/open-view/1818177000000002051/2bec8a48eadcfe479fb9737b6b02038d";
     private RelativeLayout rl;
     final String[] meses = new String[] { "Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dec"};
-
+    int seleccion;
     @Override
     protected void onStart() {
         super.onStart();
@@ -63,6 +66,9 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
         spFecha= findViewById(R.id.spFecha);
         spLitros = findViewById(R.id.spLitros);
         spTgraf = findViewById(R.id.spTChart);
+        flecha = findViewById(R.id.flechaAtr);
+        flecha.setOnClickListener(this);
+        seleccion= spLitros.getSelectedItemPosition();
 
         ArrayAdapter <CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.txtFechas,          android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -130,7 +136,7 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
         LineData lineData= new LineData(dataSets);
         //lineData.setValueFormatter(new EjeX(getEjeXValores()));
         chart.setData(lineData);
-        chart.animateXY(2000,2000);
+        chart.animateXY(5000,5000);
         lineData.setValueTextSize(18f);
         chart.invalidate();
 
@@ -230,8 +236,10 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+    public void onItemSelected(AdapterView<?> adapterView, View view,int i , long l) {
         String item = adapterView.getItemAtPosition(i).toString();
+
+
         switch(item){
             case "Lineal":
 
@@ -251,11 +259,45 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
                     return;
                 }
                 if(chart.getVisibility() == view.VISIBLE){
-                    // chart.setVisibility(View.GONE);
+                     chart.setVisibility(View.GONE);
                     barraH.setVisibility(View.VISIBLE);
                     barras();
                 }break;
-            case "Litros":
+           case "Litros":
+
+               if(seleccion !=i && seleccion == 1 ){
+
+               }else {
+                   if (seleccion !=i && seleccion ==2){
+
+                   }
+               }
+               seleccion=i;
+                break;
+            case "Galones":
+
+                if(seleccion !=i && seleccion == 0 ){
+
+                }else {
+                    if (seleccion !=i && seleccion ==2){
+
+                    }
+                }
+                seleccion=i;
+                break;
+
+            case "Metros Cúbicos":
+
+                if(seleccion !=i && seleccion == 0 ){
+
+                }else {
+                    if (seleccion !=i && seleccion ==1){
+
+                    }
+                }
+                seleccion=i;
+                break;
+
 
 
         }
@@ -264,6 +306,15 @@ public class webView extends AppCompatActivity implements OnChartGestureListener
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.flechaAtr:
+                    finish();
+                break;
+        }
     }
 
     private class EjeX implements IValueFormatter {
