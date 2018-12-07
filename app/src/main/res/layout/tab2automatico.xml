@@ -16,44 +16,96 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Establezca parametros:"
+        android:text="Establezca parametros de medidas:"
         android:textColor="@color/colorTexto"
         android:textSize="25dp" />
 
-    <TextView
-        android:id="@+id/tvLitros"
+    <RadioGroup
+        android:id="@+id/rgMedidas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvParametros">
+
+        <RadioButton
+            android:id="@+id/rbLitros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:checked="true"
+            android:text="Litros"
+            android:textColor="@color/colorTexto"
+            android:textSize="25dp" />
+
+        <RadioButton
+            android:id="@+id/rbGalones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="Galones"
+            android:textColor="@color/colorTexto"
+            android:textSize="25dp" />
+
+        <RadioButton
+            android:id="@+id/rbCubicos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="Cubicos"
+            android:textColor="@color/colorTexto"
+            android:textSize="25dp" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:id="@+id/rlBarras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvParametros"
-        android:text="Litros:"
-        android:textColor="@color/colorTexto"
-        android:textSize="25dp" />
+        android:layout_toEndOf="@+id/rgMedidas">
 
-    <com.michaelmuenzer.android.scrollablennumberpicker.ScrollableNumberPicker
-        android:id="@+id/snpNumeracion"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvParametros"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/tvLitros"
-        android:background="@drawable/custom_numero"
-        app:snp_buttonIconLeft="@drawable/ic_left"
-        app:snp_buttonIconRight="@drawable/ic_right"
-        app:snp_maxValue="100"
-        app:snp_minValue="0"
-        app:snp_orientation="horizontal"
-        app:snp_stepSize="1"
-        app:snp_updateInterval="1"
-        app:snp_value="1"
-        app:snp_valueMarginEnd="8dp"
-        app:snp_valueMarginStart="8dp" />
+        <EditText
+            android:id="@+id/etLitros"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:inputType="numberDecimal"
+            android:visibility="visible" />
 
-    <Button
-        android:id="@+id/boton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/snpNumeracion"
-        android:layout_marginTop="10dp"
-        android:text="Comenzar" />
+        <EditText
+            android:id="@+id/etGalones"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/etLitros"
+            android:layout_marginLeft="20dp"
+            android:inputType="numberDecimal"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/etCubicos"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/etGalones"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:inputType="numberDecimal"
+            android:visibility="visible" />
+
+        <!--<com.michaelmuenzer.android.scrollablennumberpicker.ScrollableNumberPicker
+            android:id="@+id/snpNumeracionLitros"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:nextFocusRight="@id/rbLitros"
+            android:background="@drawable/custom_numero"
+            app:snp_buttonIconLeft="@drawable/ic_left"
+            app:snp_buttonIconRight="@drawable/ic_right"
+            app:snp_maxValue="100"
+            app:snp_minValue="0"
+            app:snp_orientation="horizontal"
+            app:snp_stepSize="1"
+            app:snp_updateInterval="1"
+            app:snp_value="1"
+            app:snp_valueMarginEnd="8dp"
+            app:snp_valueMarginStart="8dp" />-->
+    </RelativeLayout>
 </RelativeLayout>

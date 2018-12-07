@@ -22,6 +22,8 @@ public class ajustes extends AppCompatActivity {
     TextView display;
     RelativeLayout display2;
     String fondoSeleccionado = "";
+    String tamanoSelecionado = "";
+    String fondoActual;
     Button save;
 
     @Override
@@ -91,12 +93,15 @@ public class ajustes extends AppCompatActivity {
 
                 if (position == 0) {
                     display.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+                    tamanoSelecionado = "tamano25";
                 }
                 if (position == 1) {
                     display.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
+                    tamanoSelecionado = "tamano30";
                 }
                 if (position == 2) {
                     display.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35);
+                    tamanoSelecionado = "tamano35";
                 }
             }
 
@@ -118,6 +123,15 @@ public class ajustes extends AppCompatActivity {
                 back.putExtra("fondoSeleccionado", fondoSeleccionado);
             case "colorFondo4":
                 back.putExtra("fondoSeleccionado", fondoSeleccionado);
+        }
+
+        switch (tamanoSelecionado){
+            case "tamano25":
+                back.putExtra("tamanoSelecionado", tamanoSelecionado);
+            case "tamano30":
+                back.putExtra("tamanoSelecionado", tamanoSelecionado);
+            case "tamano35":
+                back.putExtra("tamanoSelecionado", tamanoSelecionado);
         }
         setResult(Activity.RESULT_OK, back);
         finish();
