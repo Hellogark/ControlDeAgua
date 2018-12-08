@@ -77,7 +77,7 @@
             android:layout_below="@id/etLitros"
             android:layout_marginLeft="20dp"
             android:inputType="numberDecimal"
-            android:visibility="visible" />
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/etCubicos"
@@ -87,7 +87,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:inputType="numberDecimal"
-            android:visibility="visible" />
+            android:visibility="invisible" />
 
         <!--<com.michaelmuenzer.android.scrollablennumberpicker.ScrollableNumberPicker
             android:id="@+id/snpNumeracionLitros"
