@@ -23,7 +23,6 @@ import org.w3c.dom.Text;
 public class tab2Automatico extends Fragment {
     RelativeLayout display2;
     String fondoActual;
-    RadioGroup medidas;
     RadioButton rbLitros, rbCubicos, rbGalones;
     EditText litros, cubicos, galones;
 
@@ -31,13 +30,13 @@ public class tab2Automatico extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.tab2automatico, container, false);
         display2 = (RelativeLayout) v.findViewById(R.id.Fondo);
-        medidas = (RadioGroup) v.findViewById(R.id.rgMedidas);
         litros = (EditText) v.findViewById(R.id.etLitros);
         galones = (EditText) v.findViewById(R.id.etGalones);
         cubicos = (EditText) v.findViewById(R.id.etCubicos);
         rbLitros = (RadioButton) v.findViewById(R.id.rbLitros);
         rbGalones = (RadioButton) v.findViewById(R.id.rbGalones);
         rbCubicos = (RadioButton) v.findViewById(R.id.rbCubicos);
+
         rbLitros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +45,7 @@ public class tab2Automatico extends Fragment {
                 cubicos.setVisibility(View.INVISIBLE);
             }
         });
+
         rbGalones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +54,7 @@ public class tab2Automatico extends Fragment {
                 cubicos.setVisibility(View.INVISIBLE);
             }
         });
+
         rbCubicos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,26 +64,6 @@ public class tab2Automatico extends Fragment {
             }
         });
         return v;
-
-        /*switch (medidas.getCheckedRadioButtonId()){
-            case R.id.rbLitros:
-                litros.setVisibility(View.VISIBLE);
-                galones.setVisibility(View.INVISIBLE);
-                cubicos.setVisibility(View.INVISIBLE);
-                break;
-
-            case R.id.rbGalones:
-                litros.setVisibility(View.INVISIBLE);
-                galones.setVisibility(View.VISIBLE);
-                cubicos.setVisibility(View.INVISIBLE);
-                break;
-
-            case R.id.rbCubicos:
-                litros.setVisibility(View.INVISIBLE);
-                galones.setVisibility(View.INVISIBLE);
-                cubicos.setVisibility(View.VISIBLE);
-                break;
-        }*/
     }
 
     @Override

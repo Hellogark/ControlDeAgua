@@ -108,4 +108,15 @@
             app:snp_valueMarginEnd="8dp"
             app:snp_valueMarginStart="8dp" />-->
     </RelativeLayout>
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/rgMedidas"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custom_manual"
+        android:text=""
+        android:textOff=""
+        android:textOn="" />
 </RelativeLayout>

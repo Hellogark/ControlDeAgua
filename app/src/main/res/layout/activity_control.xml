@@ -55,23 +55,13 @@
             android:layout_height="match_parent"
             android:src="@drawable/medidor" />
 
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="157dp"
-            android:background="@drawable/custom_manual"
-            android:text=""
-            android:textOff=""
-            android:textOn="" />
-
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="83dp"
             android:enabled="false"
-            android:hint="Numeros"
+            android:hint="Medida"
             android:inputType="numberDecimal" />
 
         <ProgressBar
