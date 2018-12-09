@@ -24,15 +24,13 @@ public class tab2Automatico extends Fragment {
     RelativeLayout display2;
     String fondoActual;
     RadioButton rbLitros, rbCubicos, rbGalones;
-    EditText litros, cubicos, galones;
+    EditText agua;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.tab2automatico, container, false);
         display2 = (RelativeLayout) v.findViewById(R.id.Fondo);
-        litros = (EditText) v.findViewById(R.id.etLitros);
-        galones = (EditText) v.findViewById(R.id.etGalones);
-        cubicos = (EditText) v.findViewById(R.id.etCubicos);
+        agua = (EditText) v.findViewById(R.id.etAgua);
         rbLitros = (RadioButton) v.findViewById(R.id.rbLitros);
         rbGalones = (RadioButton) v.findViewById(R.id.rbGalones);
         rbCubicos = (RadioButton) v.findViewById(R.id.rbCubicos);
@@ -40,27 +38,27 @@ public class tab2Automatico extends Fragment {
         rbLitros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                litros.setVisibility(View.VISIBLE);
+                /*litros.setVisibility(View.VISIBLE);
                 galones.setVisibility(View.INVISIBLE);
-                cubicos.setVisibility(View.INVISIBLE);
+                cubicos.setVisibility(View.INVISIBLE);*/
             }
         });
 
         rbGalones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                litros.setVisibility(View.INVISIBLE);
+                /*litros.setVisibility(View.INVISIBLE);
                 galones.setVisibility(View.VISIBLE);
-                cubicos.setVisibility(View.INVISIBLE);
+                cubicos.setVisibility(View.INVISIBLE);*/
             }
         });
 
         rbCubicos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                litros.setVisibility(View.INVISIBLE);
+                /*litros.setVisibility(View.INVISIBLE);
                 galones.setVisibility(View.INVISIBLE);
-                cubicos.setVisibility(View.VISIBLE);
+                cubicos.setVisibility(View.VISIBLE);*/
             }
         });
         return v;

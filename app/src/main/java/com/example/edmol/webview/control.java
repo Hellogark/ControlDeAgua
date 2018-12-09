@@ -8,10 +8,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -41,6 +38,9 @@ public class control extends AppCompatActivity {
     private int mProgressStatus = 0;
     private Handler mHandler = new Handler();
 
+    TextView aguaTotal;
+    TextView flujoAgua;
+
     //variables para la conexion
     Handler bluetoothIn;
     EditText velocidad;
@@ -64,6 +64,8 @@ public class control extends AppCompatActivity {
         display2 = (CoordinatorLayout) findViewById(R.id.Fondo);
         mProgressBar = (ProgressBar) findViewById(R.id.pbProgreso);
         mCargaTexto = (TextView) findViewById(R.id.tvCargaCompleta);
+        aguaTotal = (TextView) findViewById(R.id.txtCantidad);
+        flujoAgua = (TextView) findViewById(R.id.txtCantidad);
 
         String fondoActual;
         fondoActual = getIntent().getExtras().getString("fondoActual");
@@ -134,10 +136,13 @@ public class control extends AppCompatActivity {
                         if (recDataString.charAt(0) == '#')								//if it starts with # we know it is what we are looking for
                         {
                             //separa el string recibido
-                            String sensor0 = recDataString.substring(1, 5);             //get sensor value from string between indices 1-5
-                            String sensor1 = recDataString.substring(6, 10);            //same again...
+                            String valor0 = recDataString.substring(1, 5);             //get sensor value from string between indices 1-5
+                            String valor1 = recDataString.substring(6, 10);            //same again...
                             String sensor2 = recDataString.substring(11, 15);
                             String sensor3 = recDataString.substring(16, 20);
+
+                            flujoAgua.setText(valor0); //se insertan los valores que manda el arduino
+                            aguaTotal.setText(valor1);
 
                             /*if(sensor0.equals("1.00"))
                                 sensorView0.setText("Encendido");	//update the textviews with sensor values
@@ -249,7 +254,7 @@ public class control extends AppCompatActivity {
 
             //create device and set the MAC address
             //Log.i("ramiro", "adress : " + address);
-            BluetoothDevice device = btAdapter.getRemoteDevice("PONER AQUI LA DIRECCION MAC DEL MODULO");
+            BluetoothDevice device = btAdapter.getRemoteDevice("98:D3:32:30:77:71");
 
             try {
                 btSocket = createBluetoothSocket(device);

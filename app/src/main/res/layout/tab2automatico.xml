@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Establezca parametros de medidas:"
+        android:text="Establezca la cantidad de agua que desea usar:"
         android:textColor="@color/colorTexto"
         android:textSize="25dp" />
 
@@ -24,7 +24,10 @@
         android:id="@+id/rgMedidas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvParametros">
+        android:layout_below="@id/tvParametros"
+        android:layout_alignStart="@+id/tvParametros"
+        android:layout_marginTop="36dp"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/rbLitros"
@@ -40,7 +43,7 @@
             android:id="@+id/rbGalones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="4dp"
             android:text="Galones"
             android:textColor="@color/colorTexto"
             android:textSize="25dp" />
@@ -49,7 +52,7 @@
             android:id="@+id/rbCubicos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="4dp"
             android:text="Cubicos"
             android:textColor="@color/colorTexto"
             android:textSize="25dp" />
@@ -59,35 +62,19 @@
         android:id="@+id/rlBarras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvParametros"
-        android:layout_toEndOf="@+id/rgMedidas">
+        android:layout_below="@id/tvParametros">
 
         <EditText
-            android:id="@+id/etLitros"
-            android:layout_width="80dp"
+            android:id="@+id/etAgua"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="Cantidad"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
             android:inputType="numberDecimal"
             android:visibility="visible" />
-
-        <EditText
-            android:id="@+id/etGalones"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:layout_below="@id/etLitros"
-            android:layout_marginLeft="20dp"
-            android:inputType="numberDecimal"
-            android:visibility="invisible" />
-
-        <EditText
-            android:id="@+id/etCubicos"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:layout_below="@id/etGalones"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:inputType="numberDecimal"
-            android:visibility="invisible" />
 
         <!--<com.michaelmuenzer.android.scrollablennumberpicker.ScrollableNumberPicker
             android:id="@+id/snpNumeracionLitros"
@@ -112,11 +99,11 @@
     <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/rgMedidas"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="@drawable/custom_manual"
         android:text=""
-        android:textOff=""
-        android:textOn="" />
+        android:textOff="Off"
+        android:textOn="On" />
 </RelativeLayout>
