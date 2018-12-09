@@ -9,6 +9,7 @@ import android.opengl.Visibility;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,9 @@ import java.util.UUID;
 
 public class tab2Automatico extends Fragment {
     RelativeLayout display2;
+    TextView display;
     String fondoActual;
+    String tamanoActual;
     RadioButton rbLitros, rbCubicos, rbGalones;
     EditText agua;
     ToggleButton botonPrender2;
@@ -53,6 +56,7 @@ public class tab2Automatico extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.tab2automatico, container, false);
         display2 = (RelativeLayout) v.findViewById(R.id.Fondo);
+        display = (TextView) v.findViewById(R.id.txtCambioTamano);
         agua = (EditText) v.findViewById(R.id.etAgua);
         rbLitros = (RadioButton) v.findViewById(R.id.rbLitros);
         rbGalones = (RadioButton) v.findViewById(R.id.rbGalones);
@@ -226,6 +230,10 @@ public class tab2Automatico extends Fragment {
             if (resultCode == Activity.RESULT_OK) {
                 String fondoSeleccionado = data.getStringExtra("fondoSeleccionado").toString();
                 fondoActual = fondoSeleccionado;
+
+                String tamanoSeleccionado = data.getStringExtra("tamanoSeleccioando").toString();
+                tamanoActual = tamanoSeleccionado;
+
                 switch (fondoActual) {
                     case "colorFondo1":
                         display2.setBackgroundColor(getResources().getColor(R.color.colorFondo1));
@@ -238,6 +246,20 @@ public class tab2Automatico extends Fragment {
                         break;
                     case "colorFondo4":
                         display2.setBackgroundColor(getResources().getColor(R.color.colorFondo4));
+                        break;
+                }
+
+                switch (tamanoActual){
+                    case "tamano25":
+                        display.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+                        break;
+
+                    case "tamano30":
+                        display.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
+                        break;
+
+                    case "tamano35":
+                        display.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35);
                         break;
                 }
             }

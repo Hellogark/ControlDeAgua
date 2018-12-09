@@ -67,7 +67,7 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/txtControl"
+        android:id="@+id/txtCambioTamano"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/barraTamano"

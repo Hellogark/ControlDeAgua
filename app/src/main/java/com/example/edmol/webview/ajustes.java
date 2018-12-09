@@ -32,7 +32,7 @@ public class ajustes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajustes);
 
-        display = (TextView) findViewById(R.id.txtControl);
+        display = (TextView) findViewById(R.id.txtCambioTamano);
         display2 = (RelativeLayout) findViewById(R.id.Fondo);
         colorList();
         tamanoList();
