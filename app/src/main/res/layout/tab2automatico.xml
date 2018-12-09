@@ -62,7 +62,8 @@
         android:id="@+id/rlBarras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvParametros">
+        android:layout_below="@id/tvParametros"
+        android:layout_marginTop="0dp">
 
         <EditText
             android:id="@+id/etAgua"
@@ -71,7 +72,6 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:hint="Cantidad"
-            android:layout_marginTop="8dp"
             android:gravity="center"
             android:inputType="numberDecimal"
             android:visibility="visible" />
@@ -97,13 +97,14 @@
     </RelativeLayout>
 
     <ToggleButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/botonPrender2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_below="@id/rgMedidas"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="@drawable/custom_manual"
         android:text=""
-        android:textOff="Off"
-        android:textOn="On" />
+        android:textOff=""
+        android:textOn="" />
 </RelativeLayout>
